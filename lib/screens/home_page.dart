@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     var screenSize = MediaQuery.of(context).size;
     _opacity = _scrollPosition <screenSize.height * 0.40 ? _scrollPosition / (screenSize.height * 0.40) : 1;
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: PreferredSize(
           child: TopBarContents(_opacity),
           preferredSize: Size(screenSize.width, 70)),
