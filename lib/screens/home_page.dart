@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:web_ui/widgets/featured_heading.dart';
 import 'package:web_ui/widgets/featured_tiles.dart';
 import 'package:web_ui/widgets/floating_quick_access_bar.dart';
+import 'package:web_ui/widgets/main_heading.dart';
 
 import '../widgets/top_bar_contents.dart';
 
@@ -56,6 +57,7 @@ class _HomePageState extends State<HomePage> {
                     FloatingQuickAccessBar(screenSize: screenSize),
                     FeaturedHeading(screenSize: screenSize),
                     FeaturedTiles(screenSize: screenSize),
+                    MainHeading(screenSize: screenSize),
                   ],
                 ),
               ],
