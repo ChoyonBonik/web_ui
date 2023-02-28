@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web_ui/widgets/bottom_bar.dart';
+import 'package:web_ui/widgets/carousel.dart';
 import 'package:web_ui/widgets/featured_heading.dart';
 import 'package:web_ui/widgets/featured_tiles.dart';
 import 'package:web_ui/widgets/floating_quick_access_bar.dart';
@@ -38,6 +40,7 @@ class _HomePageState extends State<HomePage> {
           child: TopBarContents(_opacity),
           preferredSize: Size(screenSize.width, 70)),
       body: SingleChildScrollView(
+        controller: _scrollController,
         child: Column(
           children: [
             Stack(
@@ -58,6 +61,11 @@ class _HomePageState extends State<HomePage> {
                     FeaturedHeading(screenSize: screenSize),
                     FeaturedTiles(screenSize: screenSize),
                     MainHeading(screenSize: screenSize),
+                    MainCarousel(),
+                    SizedBox(
+                      height: screenSize.height / 10,
+                    ),
+                    BottomBar(),
                   ],
                 ),
               ],
