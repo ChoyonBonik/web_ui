@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_ui/widgets/featured_heading.dart';
+import 'package:web_ui/widgets/featured_tiles.dart';
 import 'package:web_ui/widgets/floating_quick_access_bar.dart';
 
 import '../widgets/top_bar_contents.dart';
@@ -35,29 +36,32 @@ class _HomePageState extends State<HomePage> {
       appBar: PreferredSize(
           child: TopBarContents(_opacity),
           preferredSize: Size(screenSize.width, 70)),
-      body: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                child: SizedBox(
-                  height: screenSize.height * 0.65,
-                  width: screenSize.width,
-                  child: Image.asset(
-                      'images/background.png',
-                  fit: BoxFit.cover,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  child: SizedBox(
+                    height: screenSize.height * 0.65,
+                    width: screenSize.width,
+                    child: Image.asset(
+                        'images/background.png',
+                    fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              Column(
-                children: [
-                  FloatingQuickAccessBar(screenSize: screenSize),
-                  FeaturedHeading(screenSize: screenSize),
-                ],
-              ),
-            ],
-          )
-        ],
+                Column(
+                  children: [
+                    FloatingQuickAccessBar(screenSize: screenSize),
+                    FeaturedHeading(screenSize: screenSize),
+                    FeaturedTiles(screenSize: screenSize),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
