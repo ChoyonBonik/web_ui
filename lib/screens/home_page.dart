@@ -5,6 +5,7 @@ import 'package:web_ui/widgets/featured_heading.dart';
 import 'package:web_ui/widgets/featured_tiles.dart';
 import 'package:web_ui/widgets/floating_quick_access_bar.dart';
 import 'package:web_ui/widgets/main_heading.dart';
+import 'package:web_ui/widgets/menu_drawer.dart';
 
 import '../widgets/top_bar_contents.dart';
 
@@ -36,9 +37,26 @@ class _HomePageState extends State<HomePage> {
     _opacity = _scrollPosition <screenSize.height * 0.40 ? _scrollPosition / (screenSize.height * 0.40) : 1;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: PreferredSize(
+      appBar: screenSize.width < 800 ? AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.blue,
+        ),
+        elevation: 0,
+        backgroundColor: Colors.white.withOpacity(_opacity),
+        title: Text(
+          'Author',
+          style: TextStyle(
+            color: Color(0xFF077bd7),
+            fontSize: 26,
+            fontFamily: 'Raleway',
+            fontWeight: FontWeight.w900,
+            letterSpacing: 3,
+          ),
+        ),
+      ) :PreferredSize(
           child: TopBarContents(_opacity),
-          preferredSize: Size(screenSize.width, 70)),
+          preferredSize: Size(screenSize.width, 1000)),
+      drawer: MenuDrawer(),
       body: SingleChildScrollView(
         controller: _scrollController,
         child: Column(
