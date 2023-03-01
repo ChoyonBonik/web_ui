@@ -53,7 +53,9 @@ class _MainCarouselState extends State<MainCarousel> {
     var imageSliders = generateImageTiles(screenSize);
     return Stack(
       children: [
-        CarouselSlider(items: imageSliders, options: CarouselOptions(
+        CarouselSlider(
+          items: imageSliders,
+          options: CarouselOptions(
           enlargeCenterPage: true,
           aspectRatio: 18 / 8,
           autoPlay: true,
@@ -86,6 +88,7 @@ class _MainCarouselState extends State<MainCarousel> {
             ),
           ),
         ),
+        screenSize.width < 800? Container():
         AspectRatio(
             aspectRatio: 17 / 8,
           child: Center(
