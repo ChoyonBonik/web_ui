@@ -17,7 +17,56 @@ class FeaturedTiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return screenSize.width < 800?Padding(
+      padding: EdgeInsets.only(
+        top: screenSize.height / 50,
+      ),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            SizedBox(width: screenSize.width / 15,),
+        ...Iterable<int>.generate(images.length).map((int pageIndex) => Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              SizedBox(
+                height: screenSize.width / 2.5,
+                width: screenSize.width / 1.5,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(5.0),
+                  child: Image.asset(
+                    images[pageIndex],
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+                Padding(padding: EdgeInsets.only(
+                  top: screenSize.height / 70,
+                ),
+                  child: Text(
+                    title[pageIndex],
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
+                    ),
+                  ),
+                ),
+            ],
+            ),
+            SizedBox(
+              width: screenSize.width / 15,
+            ),
+          ],
+        ),
+        ),
+          ],
+        ),
+      ),
+    )
+     :Padding(
         padding: EdgeInsets.only(
           top: screenSize.height * 0.06,
           left: screenSize.width / 15,
