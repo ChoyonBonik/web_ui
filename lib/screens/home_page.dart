@@ -21,41 +21,47 @@ class _HomePageState extends State<HomePage> {
   double _scrollPosition = 0;
   double _opacity = 0;
 
-  _scrollListener(){
+  _scrollListener() {
     setState(() {
       _scrollPosition = _scrollController.position.pixels;
     });
   }
+
   @override
   void initState() {
     _scrollController.addListener(_scrollListener);
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition <screenSize.height * 0.40 ? _scrollPosition / (screenSize.height * 0.40) : 1;
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? _scrollPosition / (screenSize.height * 0.40)
+        : 1;
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: screenSize.width < 800 ? AppBar(
-        iconTheme: IconThemeData(
-          color: Colors.blue,
-        ),
-        elevation: 0,
-        backgroundColor: Colors.white.withOpacity(_opacity),
-        title: Text(
-          'Author',
-          style: TextStyle(
-            color: Color(0xFF077bd7),
-            fontSize: 26,
-            fontFamily: 'Raleway',
-            fontWeight: FontWeight.w900,
-            letterSpacing: 3,
-          ),
-        ),
-      ) :PreferredSize(
-          child: TopBarContents(_opacity),
-          preferredSize: Size(screenSize.width, 1000)),
+      appBar: screenSize.width < 800
+          ? AppBar(
+              iconTheme: IconThemeData(
+                color: Colors.blue,
+              ),
+              elevation: 0,
+              backgroundColor: Colors.white.withOpacity(_opacity),
+              title: Text(
+                'Author',
+                style: TextStyle(
+                  color: Color(0xFF077bd7),
+                  fontSize: 26,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 3,
+                ),
+              ),
+            )
+          : PreferredSize(
+              child: TopBarContents(_opacity),
+              preferredSize: Size(screenSize.width, 1000)),
       drawer: MenuDrawer(),
       body: SingleChildScrollView(
         controller: _scrollController,
@@ -68,8 +74,8 @@ class _HomePageState extends State<HomePage> {
                     height: screenSize.height * 0.65,
                     width: screenSize.width,
                     child: Image.asset(
-                        'images/background.png',
-                    fit: BoxFit.cover,
+                      'images/background.png',
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
