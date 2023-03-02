@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:web_ui/widgets/bottom_bar.dart';
 import 'package:web_ui/widgets/carousel.dart';
 import 'package:web_ui/widgets/featured_heading.dart';
@@ -44,19 +45,30 @@ class _HomePageState extends State<HomePage> {
       appBar: screenSize.width < 800
           ? AppBar(
               iconTheme: IconThemeData(
-                color: Colors.blue,
+                color: Colors.white,
               ),
               elevation: 0,
               backgroundColor: Colors.white.withOpacity(_opacity),
-              title: Text(
-                'Author',
-                style: TextStyle(
-                  color: Color(0xFF077bd7),
-                  fontSize: 26,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 3,
-                ),
+              title: Row(
+                children: [
+                  Icon(
+                    FontAwesomeIcons.book,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'বইবিতান',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontFamily: 'Raleway',
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 3,
+                    ),
+                  ),
+                ],
               ),
             )
           : PreferredSize(
@@ -70,13 +82,20 @@ class _HomePageState extends State<HomePage> {
             Stack(
               children: [
                 Container(
-                  child: SizedBox(
-                    height: screenSize.height * 0.65,
-                    width: screenSize.width,
-                    child: Image.asset(
-                      'images/background.png',
+                  height: screenSize.height * 0.65,
+                  width: screenSize.width,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('images/back.jpg'),
                       fit: BoxFit.cover,
                     ),
+                  ),
+                  child: Center(
+                    child: Text('Online Book Shop',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 50,
+                        )),
                   ),
                 ),
                 Column(
