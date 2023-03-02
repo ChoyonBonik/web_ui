@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
@@ -25,7 +26,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 70),
       child: Container(
-        color: Colors.white.withOpacity(widget.opacity),
+        color: Colors.blue.withOpacity(widget.opacity),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Row(
@@ -33,23 +34,31 @@ class _TopBarContentsState extends State<TopBarContents> {
             children: [
               Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(
-                      width: screenSize.width / 4,
+                    Row(
+                      children: [
+                        Icon(
+                          FontAwesomeIcons.book,
+                          color: Colors.white,
+                        ),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        Text(
+                          'বইবিতান',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 26,
+                            //fontFamily: 'Raleway',
+                            fontWeight: FontWeight.w900,
+                            letterSpacing: 3,
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      'Author',
-                      style: TextStyle(
-                        color: Color(0xFF077bd7),
-                        fontSize: 26,
-                        fontFamily: 'Raleway',
-                        fontWeight: FontWeight.w900,
-                        letterSpacing: 3,
-                      ),
-                    ),
                     SizedBox(
-                      width: screenSize.width / 15,
+                      width: screenSize.width / 2,
                     ),
                     InkWell(
                       onHover: (value) {
@@ -68,7 +77,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Color(0xFF077bd7)
-                                  : Color(0xFF077bd7),
+                                  : Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -108,7 +117,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             style: TextStyle(
                               color: _isHovering[1]
                                   ? Color(0xFF077bd7)
-                                  : Color(0xFF077bd7),
+                                  : Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -148,7 +157,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             style: TextStyle(
                               color: _isHovering[2]
                                   ? Color(0xFF077bd7)
-                                  : Color(0xFF077bd7),
+                                  : Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -188,7 +197,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             style: TextStyle(
                               color: _isHovering[3]
                                   ? Color(0xFF077bd7)
-                                  : Color(0xFF077bd7),
+                                  : Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
