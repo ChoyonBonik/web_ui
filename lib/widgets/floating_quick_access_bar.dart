@@ -13,14 +13,16 @@ class FloatingQuickAccessBar extends StatefulWidget {
 }
 
 class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
-  List _isHovering = [false, false, false, false];
+  List _isHovering = [false, false, false, false, false, false];
   List<Widget> rowElements = [];
-  List<String> items = ['History', 'Science', 'Philosophy', 'Novels'];
+  List<String> items = ['History', 'Science', 'Philosophy', 'Novels', 'Horror', 'thriller'];
   List<IconData> icons = [
     Icons.location_on,
     Icons.date_range,
     Icons.people,
     Icons.wb_sunny,
+    Icons.book,
+    Icons.add,
   ];
 
   List<Widget> generateRowElements() {
